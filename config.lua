@@ -1,0 +1,19 @@
+Config = {}
+
+-- Default number of sides on each die
+Config.DefaultSides = 6
+
+-- Default number of dice to roll
+Config.DefaultDice = 1
+
+-- Minimum and maximum allowed sides on a die
+Config.MinSides = 2
+Config.MaxSides = 100
+
+-- Minimum and maximum allowed number of dice
+Config.MinDice = 1
+Config.MaxDice = 100
+
+-- Chat message colors (RGB)
+Config.SuccessColor = {0, 255, 0} -- Green for successful rolls
+Config.ErrorColor = {255, 0, 0}   -- Red for error messages
