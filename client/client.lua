@@ -1,3 +1,19 @@
+function DrawText3D(x, y, z, text)
+    local onScreen, _x, _y = World3dToScreen2d(x, y, z)
+    local px, py, pz = table.unpack(GetGameplayCamCoords())
+    
+    SetTextScale(0.35, 0.35)
+    SetTextFont(4)
+    SetTextProportional(true)
+    SetTextColour(255, 255, 255, 215)
+    SetTextEntry("STRING")
+    SetTextCentre(true)
+    AddTextComponentString(text)
+    DrawText(_x, _y)
+    local factor = (string.len(text)) / 370
+    DrawRect(_x, _y + 0.0125, 0.015 + factor, 0.03, 41, 11, 41, 68)
+end
+
 RegisterCommand("rolldice", function(source, args, rawCommand)
     -- Default values
     local sides = Config.DefaultSides
@@ -38,11 +54,27 @@ RegisterCommand("rolldice", function(source, args, rawCommand)
     
     -- Format the results
     local resultString = table.concat(results, ", ")
+    local displayText = string.format("Rolled %d %d-sided dice: %s", dice, sides, resultString)
+    
+    -- Display in chat as well
     TriggerEvent('chat:addMessage', {
         color = Config.SuccessColor,
         multiline = true,
-        args = {"[RollDice]", string.format("Rolled %d %d-sided dice: %s", dice, sides, resultString)}
+        args = {"[RollDice]", displayText}
     })
+    
+    -- Display above player's head
+    local playerPed = PlayerPedId()
+    local displayTime = Config.DisplayDuration
+    local endTime = GetGameTimer() + displayTime
+    
+    Citizen.CreateThread(function()
+        while GetGameTimer() < endTime do
+            local coords = GetEntityCoords(playerPed)
+            DrawText3D(coords.x, coords.y, coords.z + 1.0, displayText)
+            Citizen.Wait(0)
+        end
+    end)
 end, false)
 
 -- Add a suggestion for the command
