@@ -14,9 +14,8 @@ Config.MaxSides = 100
 Config.MinDice = 1
 Config.MaxDice = 100
 
--- Chat message colors (RGB)
-Config.SuccessColor = {0, 255, 0} -- Green for successful rolls
-Config.ErrorColor = {255, 0, 0}   -- Red for error messages
-
 -- Duration to display text above player's head (in milliseconds)
 Config.DisplayDuration = 5000
+
+-- Range (in meters) within which players can see the roll text
+Config.ProximityRange = 250.0

@@ -1,5 +1,8 @@
-AddEventHandler('onResourceStart', function(resourceName)
-    if GetCurrentResourceName() == resourceName then
-        print(string.format("[RollDice] Resource %s started successfully.", resourceName))
+RegisterNetEvent('rolldice:broadcast')
+AddEventHandler('rolldice:broadcast', function(text)
+    if not text or type(text) ~= "string" or text == "" then
+        return
     end
+    local sourcePlayer = source
+    TriggerClientEvent('rolldice:receive', -1, sourcePlayer, text)
 end)
