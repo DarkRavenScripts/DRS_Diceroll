@@ -18,4 +18,4 @@ Config.MaxDice = 100
 Config.DisplayDuration = 5000
 
 -- Range (in meters) within which players can see the roll text
-Config.ProximityRange = 250.0
+Config.ProximityRange = 10.0
