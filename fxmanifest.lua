@@ -3,7 +3,7 @@ game 'gta5'
 
 author 'Xavlios'
 description 'A simple FiveM script to roll dice with customizable sides and number of dice.'
-version '1.0.0'
+version '1.0.1'
 
 lua54 'yes'
 
@@ -16,7 +16,7 @@ client_scripts {
 }
 
 server_scripts {
-    'server/server.lua'
+    'server/*.lua'
 }
 
 escrow_ignore {
