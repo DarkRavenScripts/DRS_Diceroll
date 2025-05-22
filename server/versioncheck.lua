@@ -23,7 +23,7 @@ function CheckDiceRollVersion()
     if IsDuplicityVersion() then
         CreateThread(function()
             Wait(4000)
-            local currentVersionRaw = GetResourceMetadata("DRS_DiceRoll", 'version')
+            local currentVersionRaw = GetResourceMetadata("DRS_Diceroll", 'version')
 			PerformHttpRequest('https://raw.githubusercontent.com/DarkRavenScripts/Script-Versions/refs/heads/main/DRS_Diceroll.txt', function(err, body, headers)
                 if not body then
                     print("^1Unable to run version check for ^7'^3DRS_DiceRoll^7' (^3"..currentVersionRaw.."^7)")
