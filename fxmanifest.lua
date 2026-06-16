@@ -2,13 +2,18 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'Xavlios'
-description 'A simple FiveM script to roll dice with customizable sides and number of dice.'
-version '1.0.1'
+description 'FiveM QBox dice roll script with server-side rolling and ox_lib integration.'
+version '2.0.0'
 
 lua54 'yes'
 
+dependencies {
+    'ox_lib'
+}
+
 shared_scripts {
-	'config.lua'
+    '@ox_lib/init.lua',
+    'config.lua'
 }
 
 client_scripts {

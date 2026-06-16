@@ -1,21 +1,20 @@
 Config = {}
 
--- Default number of sides on each die
 Config.DefaultSides = 6
-
--- Default number of dice to roll
 Config.DefaultDice = 1
 
--- Minimum and maximum allowed sides on a die
 Config.MinSides = 2
 Config.MaxSides = 100
 
--- Minimum and maximum allowed number of dice
 Config.MinDice = 1
-Config.MaxDice = 100
+Config.MaxDice = 10
 
--- Duration to display text above player's head (in milliseconds)
-Config.DisplayDuration = 5000
+-- Milliseconds the 3D text floats above the player's head
+Config.DisplayDuration = 6000
 
--- Range (in meters) within which players can see the roll text
-Config.ProximityRange = 10.0
+-- Meters within which players receive the broadcast
+Config.ProximityRange = 15.0
+
+-- Primary command and optional alias (set alias to nil to disable)
+Config.Command = 'roll'
+Config.CommandAlias = 'rolldice'
