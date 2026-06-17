@@ -29,7 +29,7 @@ local function handleRoll(source, notation)
     if not dice or not sides then
         TriggerClientEvent('drs_diceroll:notify', source, {
             title = 'Dice Roll',
-            description = 'Invalid input. Examples: /roll 2d6  /roll d20  /roll 6',
+            description = 'Invalid input. Examples: /roll 2 6  /roll 2d6  /roll d20  /roll 6',
             type = 'error',
             duration = 5000
         })
@@ -107,12 +107,14 @@ end
 
 RegisterCommand(Config.Command, function(source, args)
     if source == 0 then return end
-    handleRoll(source, args[1])
+    local notation = (args[1] and args[2]) and (args[1] .. 'd' .. args[2]) or args[1]
+    handleRoll(source, notation)
 end, false)
 
 if Config.CommandAlias and Config.CommandAlias ~= Config.Command then
     RegisterCommand(Config.CommandAlias, function(source, args)
         if source == 0 then return end
-        handleRoll(source, args[1])
+        local notation = (args[1] and args[2]) and (args[1] .. 'd' .. args[2]) or args[1]
+        handleRoll(source, notation)
     end, false)
 end

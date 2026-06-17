@@ -3,7 +3,7 @@ game 'gta5'
 
 author 'Xavlios'
 description 'FiveM QBox dice roll script with server-side rolling and ox_lib integration.'
-version '2.0.0'
+version '2.0.1'
 
 lua54 'yes'
 
